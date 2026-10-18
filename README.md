@@ -1,19 +1,9 @@
-# Cryten Protect
+# Cryten Protect — repository setup in progress
 
-Cryten Protect is an early-development Windows desktop tool for local file inspection, scan history, optional AES-GCM encrypted quarantine, and opt-in AI reports.
+This public repository is currently a **README-only seed**. The Cryten Protect v0.0.4 source tree and a Windows executable have **not** been published here yet. Do not expect the source files or a release artifact to be available in this repository at this time.
 
-> This is not a certified antivirus and does not replace Microsoft Defender or another trusted security product. A finding is a reason to investigate, not proof that a file is malicious.
+The complete source package is prepared separately as `CrytenProtect-v0.0.4-source.zip`. To publish it, extract the archive on Windows, install Git for Windows, authenticate with write access to `Zarkovi/CrytenProtect`, and run the package's `PUSH_TO_GITHUB.bat`. That helper clones this repository first to preserve the existing README commit, copies the source while excluding common local caches and secrets, then asks before pushing.
 
-## Source and Windows builds
+Once the complete source has been pushed, the included GitHub Actions workflow can run on a Windows runner, execute the tests, build the application, and upload its package as an Actions artifact. No Windows build has run yet.
 
-The source uses Python and PySide6. Run setup_and_run.bat on 64-bit Windows to install runtime dependencies and launch the app. Run BUILD_EXE.bat to run tests and package the application. Keep the entire onedir distribution together, because the executable may load adjacent runtime files.
-
-A Windows GitHub Actions workflow is included at .github/workflows/build-windows.yml. It runs the packaging checks on a Windows runner and uploads the generated package as a workflow artifact. No prebuilt or signed executable is included in this repository.
-
-## Privacy and quarantine
-
-AI reporting stays disabled until an OpenRouter API key is configured and reporting is explicitly enabled. The app sends scan metadata to the selected provider, not scanned file contents or absolute file paths. Review the data and the provider's terms before enabling it.
-
-Quarantined files require the correct encryption key to restore. Keep a backup of that key and review all findings before isolating or deleting files.
-
-See SECURITY.md for security reporting guidance and LICENSE for licensing.
+Cryten Protect is an early-development file-inspection tool, not a certified antivirus or replacement for Microsoft Defender. Review all findings before taking action on files.
